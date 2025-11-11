@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeAdvanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -92,3 +93,5 @@ Route::post('/logout', function () {
     session()->flush();
     return redirect()->route('login.index')->with('success', 'Logout berhasil!');
 })->name('logout');
+
+Route::get('/users', [UserController::class, 'index'])->name('pages.users.index');
